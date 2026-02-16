@@ -184,9 +184,9 @@ def save_user_preferences(database, schema, stage):
             ON target.USER_NAME = source.user_name
             WHEN MATCHED THEN 
                 UPDATE SET 
-                    DATABASE_NAME = '{database}',
-                    SCHEMA_NAME = '{schema}',
-                    STAGE_NAME = '{stage}'
+                    DATABASE_NAME = '{doc_processing}',
+                    SCHEMA_NAME = '{app}',
+                    STAGE_NAME = '{streamlit_stage}'
             WHEN NOT MATCHED THEN
                 INSERT (USER_NAME, DATABASE_NAME, SCHEMA_NAME, STAGE_NAME)
                 VALUES ('{current_user}', '{database}', '{schema}', '{stage}')
